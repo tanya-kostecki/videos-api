@@ -75,8 +75,8 @@ describe('Validation cases', () => {
         .send(invalidData);
 
       expect(response.status).toBe(HttpStatus.BadRequest);
-      expect(response.body).toHaveProperty('errorMessages');
-      expect(response.body.errorMessages.length).toBeGreaterThan(0);
+      expect(response.body).toHaveProperty('errorsMessages');
+      expect(response.body.errorsMessages.length).toBeGreaterThan(0);
     });
 
     it('should not update video with minAgeRestriction set to 19 (above maximum)', async () => {
@@ -95,8 +95,8 @@ describe('Validation cases', () => {
         .send(invalidData);
 
       expect(response.status).toBe(HttpStatus.BadRequest);
-      expect(response.body).toHaveProperty('errorMessages');
-      expect(response.body.errorMessages.length).toBeGreaterThan(0);
+      expect(response.body).toHaveProperty('errorsMessages');
+      expect(response.body.errorsMessages.length).toBeGreaterThan(0);
     });
   });
 
@@ -139,8 +139,8 @@ describe('Validation cases', () => {
       const response = await request(app).post('/videos').send(invalidData);
 
       expect(response.status).toBe(HttpStatus.BadRequest);
-      expect(response.body).toHaveProperty('errorMessages');
-      expect(response.body.errorMessages.length).toBeGreaterThan(0);
+      expect(response.body).toHaveProperty('errorsMessages');
+      expect(response.body.errorsMessages.length).toBeGreaterThan(0);
     });
 
     it('should not update video with title longer than 40 characters', async () => {
@@ -159,8 +159,8 @@ describe('Validation cases', () => {
         .send(invalidData);
 
       expect(response.status).toBe(HttpStatus.BadRequest);
-      expect(response.body).toHaveProperty('errorMessages');
-      expect(response.body.errorMessages.length).toBeGreaterThan(0);
+      expect(response.body).toHaveProperty('errorsMessages');
+      expect(response.body.errorsMessages.length).toBeGreaterThan(0);
     });
 
     it('should create video with author exactly 20 characters', async () => {
@@ -202,8 +202,8 @@ describe('Validation cases', () => {
       const response = await request(app).post('/videos').send(invalidData);
 
       expect(response.status).toBe(HttpStatus.BadRequest);
-      expect(response.body).toHaveProperty('errorMessages');
-      expect(response.body.errorMessages.length).toBeGreaterThan(0);
+      expect(response.body).toHaveProperty('errorsMessages');
+      expect(response.body.errorsMessages.length).toBeGreaterThan(0);
     });
 
     it('should not update video with author longer than 20 characters', async () => {
@@ -222,8 +222,8 @@ describe('Validation cases', () => {
         .send(invalidData);
 
       expect(response.status).toBe(HttpStatus.BadRequest);
-      expect(response.body).toHaveProperty('errorMessages');
-      expect(response.body.errorMessages.length).toBeGreaterThan(0);
+      expect(response.body).toHaveProperty('errorsMessages');
+      expect(response.body.errorsMessages.length).toBeGreaterThan(0);
     });
   });
 
@@ -261,8 +261,8 @@ describe('Validation cases', () => {
         .send(invalidData);
 
       expect(response.status).toBe(HttpStatus.BadRequest);
-      expect(response.body).toHaveProperty('errorMessages');
-      expect(response.body.errorMessages.length).toBeGreaterThan(0);
+      expect(response.body).toHaveProperty('errorsMessages');
+      expect(response.body.errorsMessages.length).toBeGreaterThan(0);
     });
 
     it('should not update video with empty string for publicationDate', async () => {
@@ -281,8 +281,8 @@ describe('Validation cases', () => {
         .send(invalidData);
 
       expect(response.status).toBe(HttpStatus.BadRequest);
-      expect(response.body).toHaveProperty('errorMessages');
-      expect(response.body.errorMessages.length).toBeGreaterThan(0);
+      expect(response.body).toHaveProperty('errorsMessages');
+      expect(response.body.errorsMessages.length).toBeGreaterThan(0);
     });
   });
 
@@ -303,8 +303,8 @@ describe('Validation cases', () => {
         .send(invalidData);
 
       expect(response.status).toBe(HttpStatus.BadRequest);
-      expect(response.body).toHaveProperty('errorMessages');
-      expect(response.body.errorMessages.length).toBeGreaterThan(0);
+      expect(response.body).toHaveProperty('errorsMessages');
+      expect(response.body.errorsMessages.length).toBeGreaterThan(0);
     });
 
     it('should not update video with number value for canBeDownloaded', async () => {
@@ -323,8 +323,8 @@ describe('Validation cases', () => {
         .send(invalidData);
 
       expect(response.status).toBe(HttpStatus.BadRequest);
-      expect(response.body).toHaveProperty('errorMessages');
-      expect(response.body.errorMessages.length).toBeGreaterThan(0);
+      expect(response.body).toHaveProperty('errorsMessages');
+      expect(response.body.errorsMessages.length).toBeGreaterThan(0);
     });
   });
 });

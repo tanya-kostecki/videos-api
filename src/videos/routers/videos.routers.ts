@@ -26,13 +26,17 @@ videosRouter
       return;
     }
 
+    const createdAt = new Date();
+    const publicationDate = new Date(createdAt);
+    publicationDate.setDate(publicationDate.getDate() + 1);
+
     const newVideo: Video = {
       ...req.body,
       id: db.videos.length ? db.videos[db.videos.length - 1].id + 1 : 1,
-      createdAt: new Date().toISOString(),
+      createdAt: createdAt.toISOString(),
       canBeDownloaded: false,
       minAgeRestriction: null,
-      publicationDate: new Date().toISOString(),
+      publicationDate: publicationDate.toISOString(),
     };
     db.videos.push(newVideo);
 

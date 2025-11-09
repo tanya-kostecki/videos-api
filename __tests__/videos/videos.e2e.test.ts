@@ -49,8 +49,8 @@ describe('Videos API', () => {
     const response = await request(app).post('/videos').send(invalidData);
 
     expect(response.status).toBe(HttpStatus.BadRequest);
-    expect(response.body).toHaveProperty('errorMessages');
-    expect(response.body.errorMessages).toHaveLength(3);
+    expect(response.body).toHaveProperty('errorsMessages');
+    expect(response.body.errorsMessages).toHaveLength(3);
 
     const allVideos = await request(app).get('/videos');
     expect(allVideos.body).toStrictEqual([]);
@@ -110,8 +110,8 @@ describe('Videos API', () => {
       .send(invalidData);
 
     expect(response.status).toBe(HttpStatus.BadRequest);
-    expect(response.body).toHaveProperty('errorMessages');
-    expect(response.body.errorMessages).toHaveLength(3);
+    expect(response.body).toHaveProperty('errorsMessages');
+    expect(response.body.errorsMessages).toHaveLength(3);
 
     const notUpdated = await request(app).get(`/videos/${targetVideo.body.id}`);
     expect(notUpdated.body.title).toBe('Test video');
@@ -134,8 +134,8 @@ describe('Videos API', () => {
       .put(`/videos/${targetVideo.body.id}`)
       .send(invalidData);
     expect(response.status).toBe(HttpStatus.BadRequest);
-    expect(response.body).toHaveProperty('errorMessages');
-    expect(response.body.errorMessages).toHaveLength(3);
+    expect(response.body).toHaveProperty('errorsMessages');
+    expect(response.body.errorsMessages).toHaveLength(3);
 
     const notUpdated = await request(app).get(`/videos/${targetVideo.body.id}`);
     expect(notUpdated.body.title).toBe('Test video');
